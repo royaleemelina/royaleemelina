@@ -24,16 +24,16 @@ export default function ContactSection() {
     <section ref={ref} id="contact-section" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[#b9a154] transform -skew-y-6 origin-top-left z-0" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold font-header text-white sm:text-5xl mb-4">
+          <h2 className="text-4xl font-serif font-bold text-white sm:text-5xl mb-4">
             Get in Touch
           </h2>
-          <p className="text-lg font-subheader text-white/80">
+          <p className="text-lg text-white/80">
             Let's start planning your perfect day
           </p>
         </motion.div>
@@ -44,18 +44,52 @@ export default function ContactSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6 font-subheader">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Input 
+                    type="text" 
+                    placeholder="Your Name" 
+                    required 
+                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                  />
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Input 
+                    type="date" 
+                    placeholder="Desired Date (MM/DD/YYYY)" 
+                    required 
+                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" 
+                  />
+                </motion.div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    required 
+                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                  />
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <Input 
+                    type="tel" 
+                    placeholder="Contact Number" 
+                    required 
+                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                  />
+                </motion.div>
+              </div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Input type="text" placeholder="Your Name" required className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white rounded-none" />
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Input type="email" placeholder="Your Email" required className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:ring-white rounded-none" />
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <Textarea placeholder="Your Message" required className="bg-white/10 border-white/20 text-white placeholder-white/50 focus:ring-white rounded-none" />
+                <Textarea 
+                  placeholder="Your Message" 
+                  required 
+                  className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                />
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button type="submit" className="w-full bg-white text-[#b9a154] hover:bg-white/90 transition-all duration-300 rounded-none">
+                <Button type="submit" className="w-full bg-white text-[#b9a154] hover:bg-white/90 transition-all duration-300">
                   <Send className="w-4 h-4 mr-2" />
                   Send Message
                 </Button>
@@ -94,7 +128,7 @@ export default function ContactSection() {
                 <div className="bg-white rounded-full p-2">
                   <Facebook className="w-6 h-6 text-[#b9a154]" />
                 </div>
-                <a href="https://facebook.com/royaleemelina" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">
+                <a href="https://www.facebook.com/p/Royale-Emelina-100065265409615" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">
                   facebook.com/royaleemelina
                 </a>
               </motion.div>

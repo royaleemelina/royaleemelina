@@ -12,17 +12,17 @@ const features = [
   },
   {
     title: "Several Venues to Choose From",
-    description: "Our place offers six venue options, each with its own distinct charms, for your wedding ceremony and reception.",
+    description: "Our place offers six venue options, each with its own distinct charm, for your special occassion.",
     image: "/images/venues.png"
   },
   {
     title: "Customized Catering",
-    description: "Prepared with your guests in mind, our catering are customizable to suit your preferences and budget.",
+    description: "Prepared with your guests in mind, our catering is customizable to suit your preference and budget.",
     image: "/images/catering.png"
   },
   {
     title: "Flexible Payment Terms",
-    description: "Enjoy a peace of mind that ensures a smooth event planning experience tailored to your convenience.",
+    description: "Experience peace of mind ensuring a smooth event planning experience tailored to your convenience.",
     image: "/images/weddingo.png"
   },
   {

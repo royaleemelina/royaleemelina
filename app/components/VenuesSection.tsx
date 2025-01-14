@@ -20,9 +20,9 @@ const venues = [
     name: "Betina's Hall",
     capacity: 'Up to 130 guests',
     images: [
-      '/images/bettinahall1.jpg',
-      '/images/bettinahall.jpg',
-      '/images/bettinahall2.jpg',
+      '/images/betinahall/bettinahall1.jpg',
+      '/images/betinahall/bettinahall.jpg',
+      '/images/betinahall/bettinahall2.jpg',
     ]
   },
   {
@@ -30,8 +30,8 @@ const venues = [
     name: "Emelina's Hall",
     capacity: 'Up to 160 guests',
     images: [
-      '/images/emelinahall.jpg',
-      '/images/emelinahall1.jpg',
+      '/images/emelinahall/emelinahall.jpg',
+      '/images/emelinahall/emelinahall1.jpg',
       '/images/thomas+emelinahall1.jpg',
     ]
   },
@@ -40,9 +40,9 @@ const venues = [
     name: "Emelina's Garden",
     capacity: 'Up to 160 guests',
     images: [
-      '/images/emelinasgarden.jpg',
-      '/images/jillianneshall1.png',
-      '/images/jillianneshall2.png',
+      '/images/emelinasgarden/emelinasgarden1.jpg',
+      '/images/emelinasgarden/emelinasgarden.jpg',
+      '/images/emelinasgarden/emelinasgarden2.jpg',
     ]
   },
   {
@@ -50,9 +50,9 @@ const venues = [
     name: "Jillianne's Hall",
     capacity: 'Up to 160 guests',
     images: [
-      '/images/jilliannehall.jpg',
-      '/images/jilliannehall1.jpg',
-      '/images/jilliannehall2.jpg',
+      '/images/jilliannehall/jilliannehall.jpg',
+      '/images/jilliannehall/jilliannehall1.jpg',
+      '/images/jilliannehall/jilliannehall2.jpg',
     ]
   },
   {
@@ -60,7 +60,7 @@ const venues = [
     name: "Starmark Hall",
     capacity: 'Up to 160 guests',
     images: [
-      '/images/starmarkhall.jpg',
+      '/images/starmarkhall/starmarkhall.jpg',
       '/images/jillianneshall1.png',
       '/images/jillianneshall2.png',
     ]
@@ -70,9 +70,9 @@ const venues = [
     name: 'Thomas Hall',
     capacity: 'Up to 160 guests',
     images: [
-      '/images/thomashall1.jpg',
-      '/images/thomashall.jpg',
-      '/images/jillianneshall2.png',
+      '/images/thomashall/thomashall1.jpg',
+      '/images/thomashall/thomashall.jpg',
+      '/images/thomashall/thomashall2.png',
     ]
   },
 ]
