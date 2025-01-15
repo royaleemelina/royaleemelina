@@ -59,8 +59,8 @@ const venues = [
     capacity: 'Up to 160 guests',
     images: [
       '/images/starmarkhall/starmarkhall.jpg',
-      '/images/jillianneshall1.png',
-      '/images/jillianneshall2.png',
+      '/images/starmarkhall/starmarkhall.png',
+      '/images/starmarkhall/starmarkhall.png',
     ]
   },
   {
@@ -70,7 +70,7 @@ const venues = [
     images: [
       '/images/thomashall/thomashall1.jpg',
       '/images/thomashall/thomashall.jpg',
-      '/images/thomashall/thomashall2.png',
+      '/images/thomashall/thomashall2.jpg',
     ]
   },
 ]
