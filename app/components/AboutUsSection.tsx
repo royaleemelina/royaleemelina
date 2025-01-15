@@ -50,7 +50,7 @@ export default function AboutUsSection() {
           
           <div className="space-y-6 text-lg text-[#333333] font-subheader">
             <p>
-              Royale Emelina is more than just an event center; it's a canvas for your dreams and a stage for your most cherished moments. With our blend of timeless elegance and modern sophistication, we transform ordinary gatherings into extraordinary experiences.
+              Royale Emelina is more than just an event center; it&apos;s a canvas for your dreams and a stage for your most cherished moments. With our blend of timeless elegance and modern sophistication, we transform ordinary gatherings into extraordinary experiences.
             </p>
             
             <p>

@@ -1,7 +1,6 @@
 import HeroSection from './components/HeroSection'
 import FeaturesSection from './components/FeaturesSection'
 import VenuesSection from './components/VenuesSection'
-import FloatingButton from './components/FloatingButton'
 import AboutUsSection from './components/AboutUsSection'
 
 export default function Home() {

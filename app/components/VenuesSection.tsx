@@ -1,10 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { motion, AnimatePresence, useInView } from 'framer-motion'
+import {useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 type Venue = {
@@ -50,8 +48,8 @@ const venues = [
     name: "Jillianne's Hall",
     capacity: 'Up to 160 guests',
     images: [
-      '/images/jilliannehall/jilliannehall.jpg',
       '/images/jilliannehall/jilliannehall1.jpg',
+      '/images/jilliannehall/jilliannehall.jpg',
       '/images/jilliannehall/jilliannehall2.jpg',
     ]
   },

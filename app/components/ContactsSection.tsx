@@ -34,7 +34,7 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-lg text-white/80">
-            Let's start planning your perfect day
+            Start planning your perfect day
           </p>
         </motion.div>
 
