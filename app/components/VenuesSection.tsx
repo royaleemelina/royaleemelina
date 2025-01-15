@@ -16,7 +16,7 @@ const venues = [
   {
     id: '01',
     name: "Betina's Hall",
-    capacity: 'Up to 130 guests',
+    capacity: '40 to 130 guests',
     images: [
       '/images/betinahall/bettinahall1.jpg',
       '/images/betinahall/bettinahall.jpg',
@@ -26,7 +26,7 @@ const venues = [
   {
     id: '02',
     name: "Emelina's Hall",
-    capacity: 'Up to 160 guests',
+    capacity: '40 to 160 guests',
     images: [
       '/images/emelinahall/emelinahall.jpg',
       '/images/emelinahall/emelinahall1.jpg',
@@ -36,7 +36,7 @@ const venues = [
   {
     id: '03',
     name: "Emelina's Garden",
-    capacity: 'Up to 160 guests',
+    capacity: '40 to 160 guests',
     images: [
       '/images/emelinasgarden/emelinasgarden1.jpg',
       '/images/emelinasgarden/emelinasgarden.jpg',
@@ -46,7 +46,7 @@ const venues = [
   {
     id: '04',
     name: "Jillianne's Hall",
-    capacity: 'Up to 160 guests',
+    capacity: '40 to 160 guests',
     images: [
       '/images/jilliannehall/jilliannehall1.jpg',
       '/images/jilliannehall/jilliannehall.jpg',
@@ -56,7 +56,7 @@ const venues = [
   {
     id: '05',
     name: "Starmark Hall",
-    capacity: 'Up to 160 guests',
+    capacity: '40 to 160 guests',
     images: [
       '/images/starmarkhall/starmarkhall.jpg',
       '/images/starmarkhall/starmarkhall.png',
@@ -135,7 +135,7 @@ export default function VenuesSection() {
                 <h3 className="text-4xl font-header font-bold text-[#b9a154] text-center lg:text-left">
                   {venue.name}
                 </h3>
-                <p className="font-subheader text-[#333333] text-lg">
+                <p className="font-subheader text-[#333333] text-xl">
                   {venue.capacity}
                 </p>
               </div>

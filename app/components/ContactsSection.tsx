@@ -21,10 +21,10 @@ export default function ContactSection() {
   }
 
   return (
-    <section ref={ref} id="contact-section" className="relative py-24 overflow-hidden">
+    <section ref={ref} id="contact" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[#b9a154] transform -skew-y-6 origin-top-left z-0" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
@@ -34,7 +34,7 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-lg text-white/80">
-            Start planning your perfect day
+            Let's start planning your perfect day
           </p>
         </motion.div>
 
@@ -47,45 +47,50 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <label htmlFor="name" className="block text-white mb-2">Your Name</label>
                   <Input 
+                    id="name"
                     type="text" 
-                    placeholder="Your Name" 
                     required 
-                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                    className="bg-white/10 border-white/20 text-white focus:ring-white" 
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <label htmlFor="date" className="block text-white mb-2">Desired Date</label>
                   <Input 
+                    id="date"
                     type="date" 
-                    placeholder="Desired Date (MM/DD/YYYY)" 
                     required 
-                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" 
+                    className="bg-white/10 border-white/20 text-white focus:ring-white [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" 
                   />
                 </motion.div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <label htmlFor="email" className="block text-white mb-2">Your Email</label>
                   <Input 
+                    id="email"
                     type="email" 
-                    placeholder="Your Email" 
                     required 
-                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                    className="bg-white/10 border-white/20 text-white focus:ring-white" 
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <label htmlFor="phone" className="block text-white mb-2">Contact Number</label>
                   <Input 
+                    id="phone"
                     type="tel" 
-                    placeholder="Contact Number" 
                     required 
-                    className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                    className="bg-white/10 border-white/20 text-white focus:ring-white" 
                   />
                 </motion.div>
               </div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <label htmlFor="message" className="block text-white mb-2">Your Message</label>
                 <Textarea 
-                  placeholder="Your Message" 
+                  id="message"
                   required 
-                  className="bg-white/10 border-white/20 text-white placeholder-white focus:ring-white" 
+                  className="bg-white/10 border-white/20 text-white focus:ring-white" 
                 />
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -97,7 +102,7 @@ export default function ContactSection() {
               {formStatus && <p className="text-center text-white">{formStatus}</p>}
             </form>
           </motion.div>
-
+          
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
