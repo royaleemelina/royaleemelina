@@ -21,7 +21,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section ref={ref} id="contact" className="relative py-24 overflow-hidden">
+    <section ref={ref} id="contact-section" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-[#b9a154] transform -skew-y-6 origin-top-left z-0" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -45,7 +45,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <label htmlFor="name" className="block text-white mb-2">Your Name</label>
                   <Input 
@@ -62,6 +62,16 @@ export default function ContactSection() {
                     type="date" 
                     required 
                     className="bg-white/10 border-white/20 text-white focus:ring-white [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" 
+                  />
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <label htmlFor="guests" className="block text-white mb-2">Number of Guests</label>
+                  <Input 
+                    id="guests"
+                    type="number" 
+                    required 
+                    min="1"
+                    className="bg-white/10 border-white/20 text-white focus:ring-white" 
                   />
                 </motion.div>
               </div>
