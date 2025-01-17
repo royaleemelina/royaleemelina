@@ -132,12 +132,13 @@ export default function ContactSection() {
                   <Phone className="w-6 h-6 text-[#b9a154]" />
                 </div>
                 <a href="tel:+639478990466"  className="text-white">+63 947 899 0466</a>
+                <a href="tel:+639177919529"  className="text-white">+63 917 791 9529</a>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-4">
                 <div className="bg-white rounded-full p-2">
                   <Mail className="w-6 h-6 text-[#b9a154]" />
                 </div>
-                <p className="text-white">info@royaleemelina.com</p>
+                <a href='mailto:royaleemelina08@gmail.com' className="text-white">royaleemelina08@gmail.com</a>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center space-x-4">
                 <div className="bg-white rounded-full p-2">
@@ -154,24 +155,3 @@ export default function ContactSection() {
     </section>
   )
 }
-{/* <div className="flex items-start space-x-4">
-              <Phone className="w-6 h-6 text-yellow-600 mt-1" />
-              <div>
-                <h4 className="font-semibold text-yellow-900">Phone</h4>
-                <a href="tel:+639478990466" className="text-yellow-700">+63 947 899 0466</a>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Mail className="w-6 h-6 text-yellow-600 mt-1" />
-              <div>
-                <h4 className="font-semibold text-yellow-900">Email</h4>
-                <a href="mailto:royaleemelina@yahoo.com.ph" className="text-yellow-700">royaleemelina@yahoo.com.ph</a>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <MapPin className="w-6 h-6 text-yellow-600 mt-1" />
-              <div>
-                <h4 className="font-semibold text-yellow-900">Address</h4>
-                <p className="text-yellow-700">123 Event Street, Quezon City, Philippines</p>
-              </div>
-            </div> */}

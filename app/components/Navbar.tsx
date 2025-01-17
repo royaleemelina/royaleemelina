@@ -26,7 +26,6 @@ export default function Navbar() {
     { name: 'About Us', href: '#about-us' },
     { name: 'What We Offer', href: '#what-we-offer' },
     { name: 'Venues', href: '#venues' },
-    { name: 'Contact', href: '#contact-section' },
   ]
 
   return (

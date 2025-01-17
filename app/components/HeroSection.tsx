@@ -52,7 +52,7 @@ export default function HeroSection() {
               className="bg-yellow-600 border-white border-2 font-subheader text-white hover:bg-transparent duration-300 text-lg px-8 py-3 rounded-none shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
               
             >
-             <a href='https://www.royaleemelina.setmore.com' target='_blank' rel='noreferrer'>BOOK NOW</a>
+             <a href='#contact-section' rel='noopener noreferrer'>BOOK NOW</a>
             </Button>
           </motion.div>
         </motion.div>
