@@ -27,13 +27,13 @@ const features = [
   },
   {
     title: "Expandable Venues",
-    description: "Royale Emelina provides you an option to expand your desired venue.",
+    description: "Royale Emelina provides you an option to expand your desired venue. (Thomas, and Emelina Hall)",
     image: "/images/thomas+emelinahall.jpg"
   },
   {
     title: "Other Accomodations",
     description: "Royale Emelina provides you accomodations such as a bridal car, and shuttle bus travel.",
-    image: "/images/thomas+emelinahall.jpg"
+    image: "/images/bridalcar.png"
   },
 ]
 

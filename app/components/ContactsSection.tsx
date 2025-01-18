@@ -19,7 +19,7 @@ export default function ContactSection() {
     const body = JSON.stringify({
         access_key: "bcd529e7-8e06-44a0-a406-5d279b68bf2b",
         name: (form.elements.namedItem('name') as HTMLInputElement).value,
-        date: (form.elements.namedItem('date') as HTMLInputElement).value,
+        desireddate: (form.elements.namedItem('desireddate') as HTMLInputElement).value,
         guests: (form.elements.namedItem('guests') as HTMLInputElement).value,
         email: (form.elements.namedItem('email') as HTMLInputElement).value,
         phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
@@ -52,10 +52,10 @@ export default function ContactSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-serif font-bold text-white sm:text-5xl mb-4">
+          <h2 className="text-4xl font-header text-white sm:text-5xl mb-4">
             Get in Touch
           </h2>
-          <p className="text-lg text-white/80">
+          <p className="text-lg font-subheader text-white/80">
             Let's start planning your perfect day
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-subheader text-xl">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <label htmlFor="name" className="block text-white mb-2">Your Name</label>
                   <Input 
@@ -80,7 +80,7 @@ export default function ContactSection() {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <label htmlFor="date" className="block text-white mb-2">Desired Date</label>
                   <Input 
-                    id="date"
+                    id="desireddate"
                     type="date" 
                     required 
                     className="bg-white/10 border-white/20 text-white focus:ring-white [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" 
