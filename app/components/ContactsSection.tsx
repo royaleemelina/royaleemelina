@@ -15,6 +15,28 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setFormStatus('Sending...')
+    const form = e.currentTarget
+    const body = JSON.stringify({
+        access_key: "bcd529e7-8e06-44a0-a406-5d279b68bf2b",
+        name: (form.elements.namedItem('name') as HTMLInputElement).value,
+        date: (form.elements.namedItem('date') as HTMLInputElement).value,
+        guests: (form.elements.namedItem('guests') as HTMLInputElement).value,
+        email: (form.elements.namedItem('email') as HTMLInputElement).value,
+        phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+        message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    })
+    const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+        },
+        body
+    });
+    const result = await response.json();
+    if (result.success) {
+        console.log(result);
+    }
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
     setFormStatus('Message sent successfully!')
@@ -71,6 +93,7 @@ export default function ContactSection() {
                     type="number" 
                     required 
                     min="1"
+                    max="300"
                     className="bg-white/10 border-white/20 text-white focus:ring-white" 
                   />
                 </motion.div>
@@ -82,7 +105,8 @@ export default function ContactSection() {
                     id="email"
                     type="email" 
                     required 
-                    className="bg-white/10 border-white/20 text-white focus:ring-white" 
+                    className="bg-white/10 border-white/20 text-white focus:ring-white"
+                    placeholder="email@example.com"
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
@@ -91,7 +115,7 @@ export default function ContactSection() {
                     id="phone"
                     type="tel" 
                     required 
-                    className="bg-white/10 border-white/20 text-white focus:ring-white" 
+                    className="bg-white/10 border-white/20 text-white focus:ring-white"
                   />
                 </motion.div>
               </div>
@@ -100,7 +124,8 @@ export default function ContactSection() {
                 <Textarea 
                   id="message"
                   required 
-                  className="bg-white/10 border-white/20 text-white focus:ring-white" 
+                  className="bg-white/10 border-white/20 text-white focus:ring-white"
+                  placeholder="Enter Message" 
                 />
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
