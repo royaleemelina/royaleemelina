@@ -67,9 +67,9 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-subheader text-xl">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <label htmlFor="name" className="block text-white mb-2">Your Name</label>
+                  <label htmlFor="name" className="block text-white mb-2 font-subheader text-xl">Your Name</label>
                   <Input 
                     id="name"
                     type="text" 
@@ -78,7 +78,7 @@ export default function ContactSection() {
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <label htmlFor="date" className="block text-white mb-2">Desired Date</label>
+                  <label htmlFor="date" className="block text-white mb-2 font-subheader text-xl">Desired Date</label>
                   <Input 
                     id="desireddate"
                     type="date" 
@@ -87,7 +87,7 @@ export default function ContactSection() {
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <label htmlFor="guests" className="block text-white mb-2">Number of Guests</label>
+                  <label htmlFor="guests" className="block text-white mb-2 font-subheader text-xl">Number of Guests</label>
                   <Input 
                     id="guests"
                     type="number" 
@@ -100,7 +100,7 @@ export default function ContactSection() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <label htmlFor="email" className="block text-white mb-2">Your Email</label>
+                  <label htmlFor="email" className="block text-white mb-2 font-subheader text-xl">Your Email</label>
                   <Input 
                     id="email"
                     type="email" 
@@ -110,7 +110,7 @@ export default function ContactSection() {
                   />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <label htmlFor="phone" className="block text-white mb-2">Contact Number</label>
+                  <label htmlFor="phone" className="block text-white mb-2 font-subheader text-xl">Contact Number</label>
                   <Input 
                     id="phone"
                     type="tel" 
@@ -120,7 +120,7 @@ export default function ContactSection() {
                 </motion.div>
               </div>
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                <label htmlFor="message" className="block text-white mb-2">Your Message</label>
+                <label htmlFor="message" className="block text-white mb-2 font-subheader text-xl">Your Message</label>
                 <Textarea 
                   id="message"
                   required 
@@ -129,7 +129,7 @@ export default function ContactSection() {
                 />
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button type="submit" className="w-full bg-white text-[#b9a154] hover:bg-white/90 transition-all duration-300">
+                <Button type="submit" className="w-full bg-white text-[#b9a154] font-subheader text-xl hover:bg-white/90 transition-all duration-300">
                   <Send className="w-4 h-4 mr-2" />
                   Send Message
                 </Button>
