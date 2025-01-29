@@ -181,7 +181,7 @@ export default function VenuesSection() {
           </p>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="divide-y divide-gray-900">
           {venues.map((venue, index) => (
             <motion.div
               key={venue.id}
@@ -190,7 +190,7 @@ export default function VenuesSection() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`flex flex-col gap-8 ${
                 index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } items-center py-4`}
+              } items-center py-8`}
             >
               <div className="w-full lg:w-2/3">
                 <VenueCarousel venue={venue} openGallery={openGallery} />
