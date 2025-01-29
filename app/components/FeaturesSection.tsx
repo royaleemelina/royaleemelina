@@ -75,10 +75,10 @@ export default function FeaturesSection() {
                 </div>
               </div>
               <div className="w-full md:w-1/2 space-y-4">
-                <h3 className="text-2xl  font-bold text-[#b9a154] font-header">
+                <h3 className="text-3xl  font-bold text-[#b9a154] font-header">
                   {feature.title}
                 </h3>
-                <p className="text-[#333333] font-subheader">
+                <p className="text-lg text-[#333333] font-subheader">
                   {feature.description}
                 </p>
               </div>

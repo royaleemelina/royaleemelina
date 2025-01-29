@@ -40,6 +40,10 @@ export default function ContactSection() {
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000))
     setFormStatus('Message sent successfully!')
+    // Clear form fields
+    e.currentTarget.reset()
+    // Reset form status after 3 seconds
+    setTimeout(() => setFormStatus(''), 3000)
   }
 
   return (

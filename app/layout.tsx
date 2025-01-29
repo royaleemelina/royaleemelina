@@ -5,6 +5,7 @@ import "./globals.css";
 import Nav from "./components/Navbar";
 import ContactsSection from "./components/ContactsSection";
 import FloatingButton from "./components/FloatingButton";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -64,6 +65,7 @@ export default function RootLayout({
           </main>
           <ContactsSection />
           <FloatingButton />
+          <Footer/>
       </body>
     </html>
   );

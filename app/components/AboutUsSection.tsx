@@ -48,13 +48,13 @@ export default function AboutUsSection() {
             <span className="block mt-2">Royale Emelina</span>
           </h2>
           
-          <div className="space-y-6 text-lg text-[#333333] font-subheader">
+          <div className="space-y-6 text-2xl text-[#333333] font-subheader">
             <p>
               Royale Emelina is more than just an event center; it&apos;s a canvas for your dreams and a stage for your most cherished moments. With our blend of timeless elegance and modern sophistication, we transform ordinary gatherings into extraordinary experiences.
             </p>
             
             <p>
-              Founded in 2010, we have spent over a decade perfecting the art of event hosting. Our dedicated team of professionals works tirelessly to ensure that every detail of your event is meticulously planned and flawlessly executed.
+              Founded in April 2004, we have spent over a decade perfecting the art of event hosting. Our dedicated team of professionals works tirelessly to ensure that every detail of your event is meticulously planned and flawlessly executed.
             </p>
 
             <p>
@@ -62,7 +62,7 @@ export default function AboutUsSection() {
             </p>
 
             <Button 
-              className="mt-8 bg-[#b9a154] font-subheader text-white hover:bg-yellow-500 transition-colors duration-300 rounded-none"
+              className="mt-8 bg-[#b9a154] font-subheader text-white text-lg hover:bg-yellow-500 transition-colors duration-300 rounded-none py-6 px-12"
               onClick={() => {
                 const whatWeOfferSection = document.querySelector('#what-we-offer')
                 if (whatWeOfferSection) {

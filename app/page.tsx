@@ -12,6 +12,7 @@ export default function Home() {
       <VenuesSection />
       {/* <ContactsSection /> */}
       {/* <FloatingButton /> */}
+      
     </main>
   )
 }

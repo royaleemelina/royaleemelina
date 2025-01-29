@@ -42,7 +42,7 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
             <div className="flex-shrink-0">
-              <Link href="/" className=" text-2xl md:text-3xl font-bold font-header text-[#b9a154]">
+              <Link href="/" className=" text-3xl md:text-4xl font-bold font-header text-[#b9a154]">
                 Royale Emelina
               </Link>
             </div>
@@ -57,7 +57,7 @@ export default function Navbar() {
                     //     ? 'text-gray-700 hover:text-yellow-600'
                     //     : 'text-white hover:text-yellow-300'
                     // } transition-colors duration-300`}
-                    className={`px-3 py-2 rounded-md text-base font-medium font-subheader text-gray-700 hover:text-[#b9a154] transition-colors duration-300`}
+                    className={`px-3 py-2 rounded-md text-xl font-medium font-subheader text-gray-700 hover:text-[#b9a154] transition-colors duration-300`}
                     onClick={(e) => {
                       e.preventDefault();
                       const element = document.querySelector(item.href);

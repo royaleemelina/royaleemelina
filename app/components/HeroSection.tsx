@@ -49,7 +49,7 @@ export default function HeroSection() {
           </motion.p>
           <motion.div variants={fadeInUp}>
             <Button asChild
-              className="bg-yellow-600 border-white border-2 font-subheader text-white hover:bg-transparent duration-300 text-lg px-8 py-3 rounded-none shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
+              className="bg-yellow-600 border-white border-2 font-subheader text-white hover:bg-transparent duration-300 text-2xl px-12 py-5 rounded-none shadow-lg hover:shadow-xl transform hover:scale-105 transition-transform"
               
             >
              <a href='#contact-section' rel='noopener noreferrer'>BOOK NOW</a>
