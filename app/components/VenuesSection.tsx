@@ -70,8 +70,10 @@ const venues = [
     name: 'Thomas Hall',
     capacity: '120 to 220 guests',
     images: [
-      '/images/thomashall/thomashall1.jpg',
+      '/images/thomashall/thomashall4.jpg',
       '/images/thomashall/thomashall.jpg',
+      '/images/thomashall/thomashall1.jpg',
+      '/images/thomashall/thomashall3.jpg',
       '/images/thomashall/thomashall2.jpg',
     ]
   },
