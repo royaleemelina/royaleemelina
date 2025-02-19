@@ -54,7 +54,7 @@ export default function AboutUsSection() {
             </p>
             
             <p>
-              Founded in April 2004, we have spent over a decade perfecting the art of event hosting. Our dedicated team of professionals works tirelessly to ensure that every detail of your event is meticulously planned and flawlessly executed.
+              Founded in April 2004, we have spent over a decade perfecting the art of event hosting. Our dedicated team of professionals work tirelessly to ensure that every detail of your event is meticulously planned and flawlessly executed.
             </p>
 
             <p>

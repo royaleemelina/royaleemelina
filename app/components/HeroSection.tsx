@@ -14,8 +14,8 @@ export default function HeroSection() {
   }
 
   return (
-    <section ref={ref} id="home" className="relative h-screen pt-20 flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
+    <section ref={ref} id="home" className="relative h-screen flex items-center justify-center">
+      <div className="absolute inset-0 w-full h-screen overflow-hidden">
         <video
           src='/royaleemelina.mp4'
           autoPlay
@@ -24,7 +24,7 @@ export default function HeroSection() {
           playsInline
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <div className="absolute inset-0 bg-black bg-opacity-20" />
       </div>
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
@@ -43,7 +43,7 @@ export default function HeroSection() {
           </motion.h1>
           <motion.p 
             variants={fadeInUp}
-            className="text-lg sm:text-xl md:text-2xl text-yellow-50 mb-8 max-w-3xl mx-auto leading-relaxed font-subheader"
+            className="text-lg sm:text-2xl md:text-3xl text-yellow-50 mb-8 max-w-3xl mx-auto leading-relaxed font-subheader"
           >
             Open your eyes to an experience like no other. Step into a world of extraordinary elegance and timeless taste, where every moment is thoughtfully designed to inspire awe.
           </motion.p>
