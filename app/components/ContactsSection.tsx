@@ -171,7 +171,6 @@ export default function ContactSection() {
                   onClick={() => setShowConsentInfo(true)}
                   className="text-white hover:text-white/80 focus:outline-none"
                   aria-label="View data processing information"
-                  required
                 >
                   <Info className="h-5 w-5" />
                 </button>
