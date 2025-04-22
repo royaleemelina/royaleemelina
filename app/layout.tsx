@@ -4,7 +4,7 @@ import localFont from 'next/font/local'
 import "./globals.css";
 import Nav from "./components/Navbar";
 import ContactsSection from "./components/ContactsSection";
-import ConsentSplash from "./components/consent-splash"
+// import ConsentSplash from "./components/consent-splash"
 import FloatingButton from "./components/FloatingButton";
 import Footer from "./components/Footer";
 
@@ -61,7 +61,7 @@ export default function RootLayout({
     <html lang="en" className={`${brandonGrotesque.variable} ${selviaGenatu.variable} ${inter.variable}`}>
       <body className={`font-body`}>
           <main>
-          <ConsentSplash />
+          {/* <ConsentSplash /> */}
             <Nav />
             {children}
           </main>
