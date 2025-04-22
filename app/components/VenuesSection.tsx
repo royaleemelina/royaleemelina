@@ -1,159 +1,227 @@
 "use client"
 
-import React from "react"
-
-import { useRef, useState, useCallback } from "react"
-import { motion, useInView, AnimatePresence } from "framer-motion"
+import React, { useState, useEffect } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
-import useEmblaCarousel from "embla-carousel-react"
 
+// Define venue type
 type Venue = {
-  id: string;
-  name: string;
-  capacity: string;
-  images: string[];
+  id: string
+  name: string
+  capacity: string
+  images: string[]
 }
 
+// Venue data
 const venues = [
   {
-    id: '01',
+    id: "01",
     name: "Betina's Hall",
-    capacity: '40 to 130 guests',
+    capacity: "40 to 130 guests",
     images: [
-      '/images/betinahall/bettinahall1.jpg',
-      '/images/betinahall/bettinahall.jpg',
-      '/images/betinahall/bettinahall2.jpg',
-      '/images/betinahall/bettinahall3.jpg',
-    ]
+      "/images/betinahall/bettinahall1.jpg",
+      "/images/betinahall/bettinahall.jpg",
+      "/images/betinahall/bettinahall2.jpg",
+      "/images/betinahall/bettinahall3.jpg",
+    ],
   },
   {
-    id: '02',
+    id: "02",
     name: "Emelina's Hall",
-    capacity: '40 to 130 guests',
+    capacity: "40 to 130 guests",
     images: [
-      '/images/emelinahall/emelinahall.jpg',
-      '/images/emelinahall/emelinahall1.jpg',
-      '/images/thomas+emelinahall1.jpg',
-      '/images/thomas+emelinahall.jpg',
-    ]
+      "/images/emelinahall/emelinahall.jpg",
+      "/images/emelinahall/emelinahall1.jpg",
+      "/images/thomas+emelinahall1.jpg",
+      "/images/thomas+emelinahall.jpg",
+    ],
   },
   {
-    id: '03',
+    id: "03",
     name: "Emelina's Garden",
-    capacity: '40 to 130 guests',
+    capacity: "40 to 130 guests",
     images: [
-      '/images/emelinasgarden/emelinasgarden1.jpg',
-      '/images/emelinasgarden/emelinasgarden.jpg',
-      '/images/emelinasgarden/emelinasgarden2.jpg',
-      '/images/emelinasgarden/emelinasgarden3.jpg',
-    ]
+      "/images/emelinasgarden/emelinasgarden1.jpg",
+      "/images/emelinasgarden/emelinasgarden.jpg",
+      "/images/emelinasgarden/emelinasgarden2.jpg",
+      "/images/emelinasgarden/emelinasgarden3.jpg",
+    ],
   },
   {
-    id: '04',
+    id: "04",
     name: "Jillianne's Hall",
-    capacity: '40 to 130 guests',
+    capacity: "40 to 130 guests",
     images: [
-      '/images/jilliannehall/jilliannehall1.jpg',
-      '/images/jilliannehall/jilliannehall.jpg',
-      '/images/jilliannehall/jilliannehall2.jpg',
-      '/images/jilliannehall/jilliannehall3.jpg',
-    ]
+      "/images/jilliannehall/jilliannehall1.jpg",
+      "/images/jilliannehall/jilliannehall.jpg",
+      "/images/jilliannehall/jilliannehall2.jpg",
+      "/images/jilliannehall/jilliannehall3.jpg",
+    ],
   },
   {
-    id: '05',
+    id: "05",
     name: "Starmark Hall",
-    capacity: '40 to 160 guests',
-    images: [
-      '/images/starmarkhall/starmarkhall.jpg',
-    ]
+    capacity: "40 to 160 guests",
+    images: ["/images/starmarkhall/starmarkhall.jpg"],
   },
   {
-    id: '06',
-    name: 'Thomas Hall',
-    capacity: '120 to 220 guests',
+    id: "06",
+    name: "Thomas Hall",
+    capacity: "120 to 220 guests",
     images: [
-      '/images/thomashall/thomashall.jpg',
-      '/images/thomashall/thomashall1.jpg',
-      '/images/thomashall/thomashall2.jpg',
-      '/images/thomashall/thomashall3.jpg',
-      '/images/thomashall/thomashall4.jpg',
-    ]
+      "/images/thomashall/thomashall.jpg",
+      "/images/thomashall/thomashall1.jpg",
+      "/images/thomashall/thomashall2.jpg",
+      "/images/thomashall/thomashall3.jpg",
+      "/images/thomashall/thomashall4.jpg",
+    ],
   },
-  // id='venues'
 ]
 
-function VenueCarousel({ venue, openGallery }: { venue: Venue; openGallery: (venue: Venue, index: number) => void }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+// Detect if we're on a mobile device
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false)
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev()
-  }, [emblaApi])
+  useEffect(() => {
+    const checkMobile = () => {
+      // Check if the user agent contains mobile keywords
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera || ""
+      const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext()
-  }, [emblaApi])
+      // Also check screen width as a fallback
+      const isMobileWidth = window.innerWidth <= 768
 
-  return (
-    <div className="relative overflow-hidden" ref={emblaRef}>
-      <div className="flex">
-        {venue.images.map((image: string, index: number) => (
-          <div key={index} className="flex-[0_0_100%] min-w-0">
-            <div className="aspect-[3/2] relative overflow-hidden">
-              <Image
-                fill
-                src={image || "/placeholder.svg"}
-                alt={`${venue.name} view ${index + 1}`}
-                sizes="(max-width: 1080px) 100vw, (max-width: 1920px) 50vw, 33vw"
-                className="object-cover"
-              />
-              <button
-                onClick={() => openGallery(venue, index)}
-                className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center"
-              >
-                <span className="sr-only">View gallery</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                  />
-                </svg>
-              </button>
-            </div>
+      setIsMobile(mobileRegex.test(userAgent.toLowerCase()) || isMobileWidth)
+    }
+
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  return isMobile
+}
+
+// Simple carousel component with no dependencies
+function BasicCarousel({ venue, openGallery }: { venue: Venue; openGallery: (venue: Venue, index: number) => void }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const isMobile = useIsMobile()
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => (prev === 0 ? venue.images.length - 1 : prev - 1))
+  }
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => (prev === venue.images.length - 1 ? 0 : prev + 1))
+  }
+
+  // Fallback image for errors
+  const fallbackImage = "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+
+  // For desktop, use a simpler approach with regular img tags
+  if (!isMobile) {
+    return (
+      <div className="relative overflow-hidden rounded-lg">
+        <div className="aspect-[3/2] relative overflow-hidden">
+          <img
+            src={venue.images[currentIndex] || fallbackImage}
+            alt={`${venue.name} view ${currentIndex + 1}`}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = fallbackImage
+            }}
+          />
+          <div
+            onClick={() => openGallery(venue, currentIndex)}
+            className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center cursor-pointer"
+          >
+            <span className="sr-only">View gallery</span>
           </div>
-        ))}
+        </div>
+
+        {venue.images.length > 1 && (
+          <>
+            <button
+              onClick={goToPrevious}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-6 h-6 text-[#b9a154]" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-6 h-6 text-[#b9a154]" />
+            </button>
+          </>
+        )}
       </div>
-      <button
-        onClick={scrollPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors z-10"
-        aria-label="Previous image"
-      >
-        <ChevronLeft className="w-6 h-6 text-[#b9a154]" />
-      </button>
-      <button
-        onClick={scrollNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors z-10"
-        aria-label="Next image"
-      >
-        <ChevronRight className="w-6 h-6 text-[#b9a154]" />
-      </button>
+    )
+  }
+
+  // For mobile, use the Next.js Image component
+  return (
+    <div className="relative overflow-hidden rounded-lg">
+      <div className="aspect-[3/2] relative overflow-hidden">
+        <Image
+          src={venue.images[currentIndex] || fallbackImage}
+          alt={`${venue.name} view ${currentIndex + 1}`}
+          fill
+          className="object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            target.src = fallbackImage
+          }}
+        />
+        <button
+          onClick={() => openGallery(venue, currentIndex)}
+          className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center"
+        >
+          <span className="sr-only">View gallery</span>
+        </button>
+      </div>
+
+      {venue.images.length > 1 && (
+        <>
+          <button
+            onClick={goToPrevious}
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors z-10"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-6 h-6 text-[#b9a154]" />
+          </button>
+          <button
+            onClick={goToNext}
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors z-10"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-6 h-6 text-[#b9a154]" />
+          </button>
+        </>
+      )}
     </div>
   )
 }
 
 export default function VenuesSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [currentVenue, setCurrentVenue] = useState<Venue | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+  const isMobile = useIsMobile()
+
+  // Handle client-side rendering
+  useEffect(() => {
+    setIsClient(true)
+
+    // Force a re-render after a short delay to ensure proper hydration
+    const timer = setTimeout(() => {
+      setIsClient(true)
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [])
 
   const openGallery = (venue: Venue, index: number) => {
     setCurrentVenue(venue)
@@ -177,31 +245,35 @@ export default function VenuesSection() {
     }
   }
 
+  // Simple loading state for server-side rendering
+  if (!isClient) {
+    return (
+      <section id="venues" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-serif font-bold text-[#b9a154] sm:text-5xl">Our Exquisite Venues</h2>
+          <p className="mt-8 text-gray-600">Loading venues...</p>
+        </div>
+      </section>
+    )
+  }
+
   return (
-    <section id="venues" ref={ref} className="py-24 bg-white">
+    <section id="venues" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-24"
-        >
-          <h2 className="text-4xl font-serif font-bold text-[#b9a154] sm:text-5xl">Ceremony Areas</h2>
-        </motion.div>
+        <div className="text-center mb-24">
+          <h2 className="text-4xl font-serif font-bold text-[#b9a154] sm:text-5xl">Our Exquisite Venues</h2>
+        </div>
 
         <div className="space-y-16">
           {venues.map((venue, index) => (
             <React.Fragment key={venue.id}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+              <div
                 className={`flex flex-col gap-8 ${
                   index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                 } items-center py-16`}
               >
                 <div className="w-full lg:w-2/3">
-                  <VenueCarousel venue={venue} openGallery={openGallery} />
+                  <BasicCarousel venue={venue} openGallery={openGallery} />
                 </div>
                 <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start justify-center space-y-2 lg:px-4">
                   <div className="font-serif text-[#b9a154] text-lg">{venue.id}</div>
@@ -210,68 +282,89 @@ export default function VenuesSection() {
                   </h3>
                   <p className="text-[#b9a154] text-sm">{venue.capacity}</p>
                 </div>
-              </motion.div>
+              </div>
               {index < venues.length - 1 && <hr className="border-t border-black my-8" />}
             </React.Fragment>
           ))}
         </div>
       </div>
 
-      <AnimatePresence>
-        {currentVenue && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeGallery}
-            className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
-          >
-            <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="bg-white rounded-lg overflow-hidden shadow-xl"
-              >
-                <div className="relative aspect-[16/9]">
+      {currentVenue && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"
+          onClick={closeGallery}
+        >
+          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+            <div className="bg-white rounded-lg overflow-hidden shadow-xl">
+              <div className="relative aspect-[16/9]">
+                {/* Use different approaches for mobile vs desktop */}
+                {isMobile ? (
                   <Image
-                    src={currentVenue.images[currentImageIndex] || "/placeholder.svg"}
+                    src={
+                      currentVenue.images[currentImageIndex] ||
+                      "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+                    }
                     alt={`${currentVenue.name} view ${currentImageIndex + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-contain bg-black"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.src = "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+                    }}
                   />
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-[#b9a154]" />
-                  </button>
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="w-6 h-6 text-[#b9a154]" />
-                  </button>
-                  <button
-                    onClick={closeGallery}
-                    className="absolute top-4 right-4 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
-                    aria-label="Close gallery"
-                  >
-                    <X className="w-6 h-6 text-[#b9a154]" />
-                  </button>
-                </div>
-                <div className="p-4 text-center">
-                  <h3 className="text-xl font-serif font-bold text-[#b9a154]">{currentVenue.name}</h3>
-                  <p className="text-[#b9a154] text-sm">{currentVenue.capacity}</p>
-                </div>
-              </motion.div>
+                ) : (
+                  <img
+                    src={
+                      currentVenue.images[currentImageIndex] ||
+                      "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+                    }
+                    alt={`${currentVenue.name} view ${currentImageIndex + 1}`}
+                    className="w-full h-full object-contain bg-black"
+                    onError={(e) => {
+                      e.currentTarget.src = "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+                    }}
+                  />
+                )}
+
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    prevImage()
+                  }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-6 h-6 text-[#b9a154]" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    nextImage()
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-6 h-6 text-[#b9a154]" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    closeGallery()
+                  }}
+                  className="absolute top-4 right-4 bg-white/80 p-2 rounded-full hover:bg-white transition-colors"
+                  aria-label="Close gallery"
+                >
+                  <X className="w-6 h-6 text-[#b9a154]" />
+                </button>
+              </div>
+              <div className="p-4 text-center">
+                <h3 className="text-xl font-serif font-bold text-[#b9a154]">{currentVenue.name}</h3>
+                <p className="text-[#b9a154] text-sm">{currentVenue.capacity}</p>
+              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
