@@ -85,7 +85,7 @@ function useIsMobile() {
   useEffect(() => {
     const checkMobile = () => {
       // Check if the user agent contains mobile keywords
-      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera || ""
+      const userAgent = typeof navigator !== 'undefined' ? (navigator.userAgent || navigator.vendor || "") : ""
       const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i
 
       // Also check screen width as a fallback

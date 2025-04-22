@@ -7,14 +7,13 @@ import { Button } from "@/components/ui/button"
 export default function AboutUsSection() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
       if (ref.current) {
         const { top, bottom } = ref.current.getBoundingClientRect()
         if (top <= 0 && bottom >= 0) {
-          setScrollY(window.scrollY)
+          // Remove scrollY tracking since it's not used
         }
       }
     }
