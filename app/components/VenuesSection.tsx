@@ -62,7 +62,11 @@ const venues = [
     id: "05",
     name: "Starmark Hall",
     capacity: "40 to 160 guests",
-    images: ["/images/starmarkhall/starmarkhall.jpg"],
+    images: [
+      "/images/starmarkhall/starmarkhall.jpg",
+      "/images/starmarkhall/starmarkhall1.jpg",
+      "/images/starmarkhall/starmarkhall2.jpg",
+    ],
   },
   {
     id: "06",
@@ -276,11 +280,11 @@ export default function VenuesSection() {
                   <BasicCarousel venue={venue} openGallery={openGallery} />
                 </div>
                 <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start justify-center space-y-2 lg:px-4">
-                  <div className="font-serif text-[#b9a154] text-lg">{venue.id}</div>
+                  <div className="font-serif text-[#333333] text-lg">{venue.id}</div>
                   <h3 className="text-2xl font-serif font-bold text-[#b9a154] text-center lg:text-left">
                     {venue.name}
                   </h3>
-                  <p className="text-[#b9a154] text-sm">{venue.capacity}</p>
+                  <p className="text-[#333333] text-sm">{venue.capacity}</p>
                 </div>
               </div>
               {index < venues.length - 1 && <hr className="border-t border-black my-8" />}

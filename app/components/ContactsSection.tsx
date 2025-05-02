@@ -28,7 +28,7 @@ export default function ContactSection() {
     setFormStatus("Sending...")
     const form = e.currentTarget
     const body = JSON.stringify({
-      access_key: "bcd529e7-8e06-44a0-a406-5d279b68bf2b",
+      access_key: "f2e15c73-b718-48ab-b8c6-13dfd7206eca",
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       desireddate: (form.elements.namedItem("desireddate") as HTMLInputElement).value,
       guests: (form.elements.namedItem("guests") as HTMLInputElement).value,
