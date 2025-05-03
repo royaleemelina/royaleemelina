@@ -10,6 +10,7 @@ type Venue = {
   name: string
   capacity: string
   images: string[]
+  renovated?: boolean
 }
 
 // Venue data
@@ -55,13 +56,13 @@ const venues = [
       "/images/jilliannehall/jilliannehall1.jpg",
       "/images/jilliannehall/jilliannehall.jpg",
       "/images/jilliannehall/jilliannehall2.jpg",
-      "/images/jilliannehall/jilliannehall3.jpg",
     ],
   },
   {
     id: "05",
     name: "Starmark Hall",
     capacity: "40 to 160 guests",
+    renovated: true,
     images: [
       "/images/starmarkhall/starmarkhall.jpg",
       "/images/starmarkhall/starmarkhall1.jpg",
@@ -72,6 +73,7 @@ const venues = [
     id: "06",
     name: "Thomas Hall",
     capacity: "120 to 220 guests",
+    renovated: true,
     images: [
       "/images/thomashall/thomashall.jpg",
       "/images/thomashall/thomashall1.jpg",
@@ -281,9 +283,16 @@ export default function VenuesSection() {
                 </div>
                 <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start justify-center space-y-2 lg:px-4">
                   <div className="font-serif text-[#333333] text-lg">{venue.id}</div>
-                  <h3 className="text-2xl font-serif font-bold text-[#b9a154] text-center lg:text-left">
-                    {venue.name}
-                  </h3>
+                  <div className="flex flex-col items-center lg:items-start">
+                    <h3 className="text-2xl font-serif font-bold text-[#b9a154] text-center lg:text-left">
+                      {venue.name}
+                    </h3>
+                    {venue.renovated && (
+                        <span className="inline-block bg-[#b9a154] text-white text-xs px-2 py-1 rounded mt-1 font-medium">
+                          NEWLY RENOVATED
+                        </span>
+                    )}
+                  </div>
                   <p className="text-[#333333] text-sm">{venue.capacity}</p>
                 </div>
               </div>
@@ -306,7 +315,8 @@ export default function VenuesSection() {
                   <Image
                     src={
                       currentVenue.images[currentImageIndex] ||
-                      "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+                      "/placeholder.svg?height=600&width=900&text=Image+Not+Found" ||
+                      "/placeholder.svg"
                     }
                     alt={`${currentVenue.name} view ${currentImageIndex + 1}`}
                     fill
@@ -320,7 +330,8 @@ export default function VenuesSection() {
                   <img
                     src={
                       currentVenue.images[currentImageIndex] ||
-                      "/placeholder.svg?height=600&width=900&text=Image+Not+Found"
+                      "/placeholder.svg?height=600&width=900&text=Image+Not+Found" ||
+                      "/placeholder.svg"
                     }
                     alt={`${currentVenue.name} view ${currentImageIndex + 1}`}
                     className="w-full h-full object-contain bg-black"
@@ -362,6 +373,11 @@ export default function VenuesSection() {
                 </button>
               </div>
               <div className="p-4 text-center">
+                {currentVenue.renovated && (
+                  <span className="inline-block bg-[#b9a154] text-white text-xs px-2 py-1 rounded mt-1 mb-2 font-medium">
+                    NEWLY RENOVATED
+                  </span>
+                )}
                 <h3 className="text-xl font-serif font-bold text-[#b9a154]">{currentVenue.name}</h3>
                 <p className="text-[#b9a154] text-sm">{currentVenue.capacity}</p>
               </div>
