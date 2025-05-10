@@ -29,7 +29,7 @@ const venues = [
   {
     id: "02",
     name: "Emelina's Hall",
-    capacity: "40 to 130 guests",
+    capacity: "120 to 150 guests",
     images: [
       "/images/emelinahall/emelinahall.jpg",
       "/images/emelinahall/emelinahall1.jpg",
@@ -61,7 +61,7 @@ const venues = [
   {
     id: "05",
     name: "Starmark Hall",
-    capacity: "40 to 160 guests",
+    capacity: "120 to 170 guests",
     renovated: true,
     images: [
       "/images/starmarkhall/starmarkhall.jpg",
@@ -72,7 +72,7 @@ const venues = [
   {
     id: "06",
     name: "Thomas Hall",
-    capacity: "120 to 220 guests",
+    capacity: "150 to 220 guests",
     renovated: true,
     images: [
       "/images/thomashall/thomashall.jpg",
